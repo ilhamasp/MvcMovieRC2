@@ -8,9 +8,10 @@ using MovieRC2.Data;
 namespace MovieRC2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160524032054_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rc2-20901")
@@ -179,8 +180,6 @@ namespace MovieRC2.Data.Migrations
                     b.Property<string>("Genre");
 
                     b.Property<decimal>("Price");
-
-                    b.Property<string>("Rating");
 
                     b.Property<DateTime>("ReleaseDate");
 

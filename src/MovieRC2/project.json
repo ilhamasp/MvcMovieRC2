@@ -1,11 +1,9 @@
 {
-  "userSecretsId": "aspnet-MovieRC2-8772a21e-1d12-4ffc-a3c1-37dea43e8cd9",
-
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
+  },
   "dependencies": {
-    "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002702",
-      "type": "platform"
-    },
     "Microsoft.ApplicationInsights.AspNetCore": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-final",
@@ -30,18 +28,45 @@
     "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0-rc2-*"
+    },
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final",
     "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
       "version": "1.0.0-preview1-final",
       "type": "build"
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
-      "version": "1.0.0-preview1-final",
-      "type": "build"
+      "type": "build",
+      "version": "1.0.0-preview1-final"
     },
     "NuGet.CommandLine": "3.4.3"
   },
-
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  },
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "Views",
+      "appsettings.json",
+      "web.config"
+    ]
+  },
+  "runtimeOptions": {
+    "gcServer": true
+  },
+  "scripts": {
+    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ],
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-preview1-final",
@@ -70,37 +95,5 @@
       ]
     }
   },
-
-  "frameworks": {
-    "netcoreapp1.0": {
-      "imports": [
-        "dotnet5.6",
-        "dnxcore50",
-        "portable-net45+win8"
-      ]
-    }
-  },
-
-  "buildOptions": {
-    "emitEntryPoint": true,
-    "preserveCompilationContext": true
-  },
-
-  "runtimeOptions": {
-    "gcServer": true
-  },
-
-  "publishOptions": {
-    "include": [
-      "wwwroot",
-      "Views",
-      "appsettings.json",
-      "web.config"
-    ]
-  },
-
-  "scripts": {
-    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ],
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
-  }
+  "userSecretsId": "aspnet-MovieRC2-8772a21e-1d12-4ffc-a3c1-37dea43e8cd9"
 }
