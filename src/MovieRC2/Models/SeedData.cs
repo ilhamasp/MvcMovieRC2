@@ -31,7 +31,7 @@ namespace MovieRC2.Models
                          Title = "When Harry Met Sally",
                          ReleaseDate = DateTime.Parse("1989-1-11"),
                          Genre = "Romantic Comedy",
-                         Rating = "R",
+                         Rating = "G",
                          Price = 7.99M
                      },
 
@@ -49,7 +49,7 @@ namespace MovieRC2.Models
                          Title = "Ghostbusters 2",
                          ReleaseDate = DateTime.Parse("1986-2-23"),
                          Genre = "Comedy",
-                         Rating = "R",
+                         Rating = "F",
                          Price = 9.99M
                      },
 
